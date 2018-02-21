@@ -1,0 +1,10 @@
+<h2>Welcome <%= @current_user.name %> !</h2>
+
+<table class="table">
+  <tr>
+    <span><%= link "unassigned tasks", to: "/unassigned_tasks", method: :get, class: "btn btn-primary btn-xs" %></span>
+    <span><%= link "uncompleted tasks", to: "/uncompleted_tasks", method: :get, class: "btn btn-warning btn-xs" %></span>
+    <span><%= link "completed tasks", to: "/completed_tasks", method: :get, class: "btn btn-success btn-xs" %></span>
+  </tr>
+</table>
+<span><%= link "create task", to: task_path(@conn, :new) %></span>

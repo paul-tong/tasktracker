@@ -1,0 +1,26 @@
+<h2>Edit Time on Task</h2>
+
+<ul>
+  <li>
+    <strong>Title:</strong>
+    <%= @task.title %>
+  </li>
+  <li>
+    <strong>Descrip:</strong>
+    <%= @task.descrip %>
+  </li>
+  <li>
+    <strong>Time spent:</strong>
+    <%= @task.time %>
+  </li>
+</ul>
+
+    <%= form_tag("/do_edit_time", method: :post) do %>
+      <div class="form-group">
+        <input type="input" name="time" placeholder="time spent: 15m increments" >
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Edit</button>
+      </div>
+    <% end %>
+

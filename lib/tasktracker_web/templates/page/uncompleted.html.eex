@@ -1,0 +1,26 @@
+<h2>Uncompleted tasts for <%= @current_user.name %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Descrip</th>
+      <th>Time spent</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for task <- @tasks do %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.descrip %></td>
+      <td><%= task.time %></td>
+
+      <td class="text-right">
+        <span><%= link "add time", to: "/edit_time/"<>to_string(task.id), method: :get, class: "btn btn-primary btn-xs" %></span>
+        <span><%=link "complete", to: "/do_complete/"<>to_string(task.id), method: :get,  data: [confirm: "Are you sure?"], class: "btn btn-success btn-xs"%></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<span><%= link "Back", to: user_path(@conn, :index) %></span>

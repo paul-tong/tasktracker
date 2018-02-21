@@ -1,0 +1,21 @@
+<h2>Show Task</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @task.title %>
+  </li>
+
+  <li>
+    <strong>Descrip:</strong>
+    <%= @task.descrip %>
+  </li>
+
+  <li>
+    <strong>Time spent:</strong>
+    <%= @task.time %> min
+  </li>
+</ul>
+
+<span><%= link "Back", to: user_path(@conn, :index) %></span>

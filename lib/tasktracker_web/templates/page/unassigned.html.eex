@@ -1,0 +1,27 @@
+<h2>Unassigned tasks created by <%= @current_user.name %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Descrip</th>
+      <th>Time spent</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for task <- @tasks do %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.descrip %></td>
+      <td><%= task.time %></td>
+
+      <td class="text-right">
+        <span><%= link "Edit", to: task_path(@conn, :edit, task), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%=link "assign", to: "/assign_task/"<>to_string(task.id), method: :get, class: "btn btn-primary btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<span><%= link "Back", to: user_path(@conn, :index) %></span>

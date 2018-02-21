@@ -1,0 +1,39 @@
+<h2>Assign Task</h2>
+
+<ul>
+  <li>
+    <strong>Title:</strong>
+    <%= @task.title %>
+  </li>
+
+  <li>
+    <strong>Descrip:</strong>
+    <%= @task.descrip %>
+  </li>
+</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+
+      <td class="text-right">
+        <span><%=link "assign", to: "/do_assign/"<>to_string(user.id), method: :get, class: "btn btn-primary btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+ <span><%= link "back", to: "/unassigned_tasks", method: :get, class: "btn btn-primary btn-xs" %></span>
+
