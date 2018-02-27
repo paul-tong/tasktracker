@@ -1,0 +1,23 @@
+<h2>Report of Tests Assigned by <%= @current_user.name %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed?</th>
+      <th>Timeblocks</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for task <- @tasks do %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.descrip %></td>
+      <td><%= task.isCompleted %></td>
+      <td><span><%= link "time blocks", to: "/view_timeblock/"<>to_string(task.id), method: :get, class: "btn btn-primary btn-xs" %></span></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<span><%= link "Back", to: user_path(@conn, :index) %></span>

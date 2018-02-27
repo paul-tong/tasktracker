@@ -1,0 +1,20 @@
+
+<h2>Time blocks for <%= @task.title %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>Stop</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for time <- @timeblocks do %>
+    <tr>
+      <td><%= time.start_time %></td>
+      <td><%= time.stop_time %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<span><%= link "Back", to: "/report_tasks", method: :get %></span>

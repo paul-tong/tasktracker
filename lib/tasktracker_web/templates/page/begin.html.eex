@@ -1,0 +1,9 @@
+<h2>Welcome <%= @current_user.name %> !</h2>
+
+<table class="table">
+  <tr>
+    <span><%= link "Task", to: user_path(@conn, :index), class: "btn btn-primary btn-xs" %></span>
+    <span><%= link "Management", to: "/manage_list", method: :get, class: "btn btn-success btn-xs" %></span>
+  </tr>
+</table>
+

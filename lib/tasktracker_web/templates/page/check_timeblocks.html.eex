@@ -1,0 +1,25 @@
+
+<h2>Time blocks for <%= @task.title %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>Stop</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for time <- @timeblocks do %>
+    <tr>
+      <td><%= time.start_time %></td>
+      <td><%= time.stop_time %></td>
+
+      <td class="text-right">
+        <span><%= link "edit", to: "/edit_timeblock/"<>to_string(time.id), method: :get, class: "btn btn-primary btn-xs" %></span>
+        <span><%= link "delete", to: "/delete_timeblock/"<>to_string(time.id), method: :get, class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<span><%= link "Back", to: "/uncompleted_tasks", method: :get %></span>

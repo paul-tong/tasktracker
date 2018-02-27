@@ -1,3 +1,7 @@
+<script>
+ window.time_path = "<%= timeblock_path(@conn, :index) %>";
+</script>
+
 <h2>Uncompleted tasts for <%= @current_user.name %></h2>
 
 <table class="table">
@@ -5,7 +9,6 @@
     <tr>
       <th>Title</th>
       <th>Descrip</th>
-      <th>Time spent</th>
     </tr>
   </thead>
   <tbody>
@@ -13,11 +16,15 @@
     <tr>
       <td><%= task.title %></td>
       <td><%= task.descrip %></td>
-      <td><%= task.time %></td>
 
       <td class="text-right">
-        <span><%= link "add time", to: "/edit_time/"<>to_string(task.id), method: :get, class: "btn btn-primary btn-xs" %></span>
-        <span><%=link "complete", to: "/do_complete/"<>to_string(task.id), method: :get,  data: [confirm: "Are you sure?"], class: "btn btn-success btn-xs"%></span>
+        <button class="time-button btn btn-primary"
+              data-task_id="<%= task.id %>"
+              data-start_time=""
+              data-stop_time="">
+          Start</button>
+        <span><%= link "time blocks", to: "/check_timeblock/"<>to_string(task.id), method: :get, class: "btn btn-warning btn-xs" %></span>
+        <span><%=link "complete", to: "/do_complete/"<>to_string(task.id), method: :get, class: "btn btn-success btn-xs"%></span>
       </td>
     </tr>
 <% end %>

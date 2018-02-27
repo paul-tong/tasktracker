@@ -1,0 +1,26 @@
+<h2>Add Underling: </h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+
+      <td class="text-right">
+        <span><%=link "add", to: "/add_underling/"<>to_string(user.id), method: :get, class: "btn btn-primary btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<span><%= link "Back", to: "/manage_list", method: :get %></span>
+

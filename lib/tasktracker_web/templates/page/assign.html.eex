@@ -1,4 +1,4 @@
-<h2>Assign Task</h2>
+<h2>Assign Task to Underlings</h2>
 
 <ul>
   <li>
@@ -36,4 +36,3 @@
 </table>
 
  <span><%= link "back", to: "/unassigned_tasks", method: :get, class: "btn btn-primary btn-xs" %></span>
-

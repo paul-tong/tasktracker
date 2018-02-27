@@ -1,0 +1,47 @@
+<h2>Managers of <%= @current_user.name %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @managers do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<h2>Underlings of <%= @current_user.name %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @underlings do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+
+      <td class="text-right">
+        <span><%=link "unmanage", to: "/delete_underling/"<>to_string(user.id), method: :get, class: "btn btn-primary btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<span><%= link "Add Underling", to: "/add_underling_list", method: :get %></span>
+| <span><%= link "Back", to: "/begin", method: :get %></span>
+

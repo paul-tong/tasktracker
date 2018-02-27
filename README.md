@@ -34,6 +34,11 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
     field :user_id_assign, :integer
     field :user_id_create, :integer
 
+  timeblock:
+    field :task_id, :integer
+    field :start_time, :string
+    field :stop_time, :string
+
 2. User operations
   register and login
   create new tasks
@@ -45,3 +50,8 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   Use MVC concept, the controller(C) utilizes functions of schema context(M) to operate data, then render these data
   into templates(v).
 
+4. User can be managed by multiple managers and can manage multiple underlings. User can also manage him/herself.
+
+5. One task can only be assinged to one user.
+
+6. Use jQuery to update "start/stop" button and insert new timeblock.

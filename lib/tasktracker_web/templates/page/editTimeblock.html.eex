@@ -1,0 +1,25 @@
+<h2>Edit Timeblock</h2>
+
+<ul>
+  <li>
+    <strong>Title:</strong>
+    <%= @task.title %>
+  </li>
+  <li>
+    <strong>Descrip:</strong>
+    <%= @task.descrip %>
+  </li>
+</ul>
+
+    <%= form_tag("/do_edit_timeblock/"<>Integer.to_string(@timeblock.id), method: :post) do %>
+      <div class="form-group">
+        <input type="input" name="start"  value="<%= @timeblock.start_time %>" >
+      </div>
+      <div class="form-group">
+        <input type="input" name="stop" value="<%= @timeblock.stop_time %>">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Edit</button>
+      </div>
+    <% end %>
+<span><%= link "Back", to: "/check_timeblock/"<> Integer.to_string(@task.id), method: :get %></span>
