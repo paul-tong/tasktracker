@@ -1,8 +1,7 @@
 #!/bin/bash
 
-export PORT=5100
+export PORT=5106
 
-cd ~/www/tasks1
-./bin/tasks1 stop || true
-./bin/tasks1 start
-
+cd ~/www/tasktracker
+./bin/tasktracker stop || true
+./bin/tasktracker start
